@@ -86,7 +86,7 @@ Theta2_grad = zeros(size(Theta2));
   
   J = J + regCost;
   
-  delta = a - y;
+  delta = a - y; %delta3
   
   c = 2;
 
@@ -94,7 +94,7 @@ Theta2_grad = zeros(size(Theta2));
   Theta2_grad = Theta2_grad./m;
   Theta2_grad += [zeros(size(Theta2,1), 1) Theta2(:,2:end)] .* lambda ./ m;
   
-  delta = delta * Theta2;
+  delta = delta * Theta2; %delta2
   delta = delta .* [ones(m, 1) sigmoidGradient([ones(m, 1) X]*Theta1')];
   
   Theta1_grad += delta(:,2:end)' * [ones(m, 1) activation{1}];
